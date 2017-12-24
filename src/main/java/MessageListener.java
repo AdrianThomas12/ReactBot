@@ -113,11 +113,18 @@ public class MessageListener extends ListenerAdapter {
 //                            .setThumbnail("https://pbs.twimg.com/profile_images/838627383057920000/m5vutv9g.jpg")
                             .setAuthor("UrbanDictionary", "http://www.urbandictionary.com", "http://is1.mzstatic.com/image/thumb/Purple118/v4/69/92/73/69927356-136b-b772-3bda-fca77248cdd0/source/175x175bb.jpg");
                     channel.sendMessage(eb.build()).queue();
+                } else {
+                    EmbedBuilder eb = new EmbedBuilder()
+                            .setTitle("Definition of: " + defineArgs.get(1))
+                            .setColor(new Color(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255)))
+                            .setDescription("Word does not have a meaning on UrbanDictionary.com")
+//                            .setThumbnail("https://pbs.twimg.com/profile_images/838627383057920000/m5vutv9g.jpg")
+                            .setAuthor("UrbanDictionary", "http://www.urbandictionary.com", "http://is1.mzstatic.com/image/thumb/Purple118/v4/69/92/73/69927356-136b-b772-3bda-fca77248cdd0/source/175x175bb.jpg");
+                    channel.sendMessage(eb.build()).queue();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
     }
 }
